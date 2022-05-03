@@ -18,7 +18,7 @@
                 function  select_TOP10_sanpham()
                 {
                     global $con;
-                    $sql = "SELECT TOP(10) * FROM sanpham ORDER BY Ngay_nhap ASC  ";
+                    $sql = "SELECT * FROM sanpham";
                     $run = mysqli_query($con,$sql);
                     return $run;
                 }

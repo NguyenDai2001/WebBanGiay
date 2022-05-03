@@ -314,7 +314,11 @@
 					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
 						<!-- Product 1 -->
-										
+										<?php
+											$slect_all = $select->select_TOP10_sanpham();
+											foreach($slect_all as $se)
+											{
+										?>
 
 									<div class="product-item <?php echo $se['Phan_loai'] ?>">
 										<div class="product discount product_filter">
@@ -331,7 +335,9 @@
 										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 									</div>
 
-							<
+							<?php
+											}
+							?>
 
 						
 					</div>

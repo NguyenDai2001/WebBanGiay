@@ -18,10 +18,15 @@
                 function  select_TOP10_sanpham()
                 {
                     global $con;
-                    $sql = "SELECT * FROM sanpham";
+                    $sql = "SELECT *
+                                    FROM sanpham
+                                     ORDER BY Ngay_nhap DESC
+                                    LIMIT 10";
                     $run = mysqli_query($con,$sql);
                     return $run;
                 }
+
+                
                 
 
     }

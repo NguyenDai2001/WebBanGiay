@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="styleSheet" title="text/css" href="./styles/cart.css" />
+    <script src="https://kit.fontawesome.com/7f4a8e96ee.js" crossorigin="anonymous"></script>
+</head>
+
+<link rel="styleSheet" title="text/css" href="./styles/header.css" />
+<header id="render_header"></header>
+<script type="module" languege="javascript" src="./js/header.js"></script>
+    <!-- hiển thị thông báo của message_erorr()-->
+    <div id="block_message">
+        <p id="message_box"></p>
+    </div>
+
+<body>
+
+
+    <div id="Cart_null"></div>
+    <div class="container">
+        <div class="content_cart">
+            <table id="title_tb">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Total</th>
+                    <th>Clear Cart</th>
+                </tr>
+            </table>
+            <table id="tr_Product">
+            
+            </table>
+            <table>
+                <tr  id="tongTien">
+                    <th colspan="5" style="text-align: end;">
+                        <p>Total: $<span id="tongTienGH"></span></p>
+                    </th>
+                </tr>
+                <tr class="tr_footer">
+                    <th><button class="button_back" onclick="window.location='index.html'"><i class="fa-solid fa-arrow-left"></i> Back to Shopping</button></th>
+                    <th colspan="4">
+                        <button class="button_buy" onclick="onclick_button_buy()">Buy</button>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <!-- Form nhập Thôn tin khách hàng -->
+        <div id="Form_order">
+            <div class="Form_backGround"></div>
+            <div class="Form_infoCustomer">
+                <h1>Thông tin người mua</h1>
+                <button id="hide_from" onclick="hide_form_infoCustomer()"><i class="fa-solid fa-xmark"></i></button>
+                <hr>
+                <form action="">
+                    <legend>Họ và Tên</legend>
+                        <input type="text" id="form_ho" class="none-active" placeholder="Họ" onchange="xuLyThongTinKhachHang()">
+                        <input type="text" id="form_ten" class="none-active" placeholder="Tên" onchange="xuLyThongTinKhachHang()">
+                    <legend>Email</legend>
+                        <input type="text" id="form_email" class="none-active" placeholder="Email" onchange="xuLyThongTinKhachHang()">
+                    <legend>Số điện thoại</legend>
+                        <input type="text" id="form_sdt" class="none-active" placeholder="Số điện thoại" onchange="xuLyThongTinKhachHang()">
+                    <legend>Địa chỉ</legend>
+                        <select id="select_province" class="none-active" onchange="getDistrictsByProvinceID()">
+                            <option selected>--Chọn Tỉnh/Thành phố--</option>
+                        </select>
+                        <select id="select_district" class="none-active" onchange="getWardsByDistrictsID()" disabled>
+                            <option selected>--Chọn Huyện/Quận--</option>
+                        </select>
+                        <select id="select_wards" class="none-active" disabled>
+                            <option selected>--Chọn Phường/Xã--</option>
+                        </select>
+                        <br>
+                        <input type="text" id="form_sonha" class="none-active" placeholder="Số nhà" onchange="xuLyThongTinKhachHang()">
+                    <legend>Lời nhắn</legend>
+                        <textarea name="" id="form_loinhan" class="none-active" cols="30" rows="10" ></textarea>
+                    <div class="Form_button">
+                        <button type="button" onclick="hide_form_infoCustomer()">Hủy</button>
+                        <button type="button" onclick="create_customer()">Xác Nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="module">
+    import { render_header } from "./js/header.js"
+    import { keyLocalStorageItemCart, LocalStorageCountCart, KeyLocalStorageListSP } from "./js/definition_variable.js"
+    import { getLocalStorage } from "./js/index/localStorage.js"
+    import { exceptProduct, plusProduct } from "./js/cart/buttonQuantity.js"
+    import { delete_cart } from "./js/cart/deleteProduct.js"
+        // sửa lỗi không onclick được khi dùng với type=module
+        window.render_header = render_header
+        window.exceptProduct = exceptProduct
+        window.plusProduct = plusProduct
+        window.renderCart = renderCart
+        window.delete_cart = delete_cart
+    function renderCart() {
+            var listItemInCart = getLocalStorage(keyLocalStorageItemCart)
+            if (listItemInCart && listItemInCart.length > 0) {
+                let ArrTongTien = []
+                const Show = document.querySelector("#tr_Product")
+                Show.innerHTML = listItemInCart.map((itemCart) => {
+                    getLocalStorage(KeyLocalStorageListSP).map(itemListData => {
+                        if (itemCart.idSP == itemListData.id) {
+                            itemCart = { ...itemListData, ...itemCart }
+                        }
+                    })
+                    let tongTien = itemCart.SLtrongGio * itemCart.price
+                    ArrTongTien.push(tongTien)
+                    return `
+                        <tr>
+                            <td class="Product_Name">
+                                <div class="img_product"><img src="${itemCart.image}" alt="" width="200px"></div>
+                                <div class="info_Product">
+                                    <h3>${itemCart.name}</h3>
+                                    <p>Quantity:<span>${itemCart.soLuong}</span></p>
+                                </div>
+                            </td>
+                            <td class="other_infor">
+                                <span><button class="button_quantity" onClick="exceptProduct(${itemCart.idSP}),renderCart()">-</button></span>
+                                <input type="text" id="inp_quantily" value="${itemCart.SLtrongGio}" disabled>
+                                <span><button class="button_quantity" onClick="plusProduct(${itemCart.idSP}),renderCart()">+</button</span>
+                            </td>
+                            <td class="other_infor">
+                                <span>$</span><span id="giaTien">${itemCart.price}</span>
+                            </td>
+                            <td class="other_infor">
+                                <span>$</span><span>${tongTien}</span>
+                            </td>
+                            <td class="other_infor">
+                                <button class="button_delete" onclick="delete_cart(${itemCart.idSP}),renderCart(),render_header()">
+                                    <i class="fa-regular fa-circle-xmark"></i>
+                                </button>
+                            </td>
+                        </tr>
+            `
+                }).join("")
+                // tính tổng tiền toàn bộ giỏ hàng
+                let TongToanBoGH = ArrTongTien.reduce((item1, item2) => {
+                    return item1 + item2
+                })
+                document.getElementById('tongTienGH').innerText = TongToanBoGH
+            }
+            else {
+                // ẩn khi không có j trong giỏ hàng
+                document.getElementById('Cart_null').style.display = 'block'
+                document.getElementById('title_tb').style.display = 'none'
+                document.getElementById('tongTien').style.display = 'none'
+                document.getElementsByClassName('button_buy')[0].style.display = 'none'
+            }
+        }
+        renderCart()
+
+
+/////////////////// sử lý với form nhập thông tin khách hàng /////////////////////
+    // bài 7 Ẩn hiện form nhập thông tin mua hàng
+        function show_form_infoCustomer() {
+            const show = document.getElementById('Form_order')
+            show.style.display = 'block'
+        }
+        function hide_form_infoCustomer() {
+            const hide = document.getElementById('Form_order')
+            hide.style.display = 'none'
+        }
+        // sửa lỗi không onclick được khi dùng với type=module
+        window.show_form_infoCustomer = show_form_infoCustomer
+        window.hide_form_infoCustomer = hide_form_infoCustomer
+
+    // lấy API Tỉnh,quận,huyện   
+    import { printData_province, getDistrictsByProvinceID, getWardsByDistrictsID } from "./js/cart/getAPI_PDW.js"
+        window.printData_province = printData_province
+        window.getDistrictsByProvinceID = getDistrictsByProvinceID
+        window.getWardsByDistrictsID = getWardsByDistrictsID
+
+    // import sử lý thông tin khách hàng khi ấn xác nhận mua hàng
+    import { xuLyThongTinKhachHang, layThongTinKhachHang} from "./js/cart/handle_infoCustomer.js"
+        window.xuLyThongTinKhachHang = xuLyThongTinKhachHang
+        window.layThongTinKhachHang = layThongTinKhachHang
+    import { create_customer } from "./js/bills/create_customer.js"
+        window.create_customer = create_customer
+    //kiểm tra số lượng hàng trong kho
+    import { check_quantity_in_stora } from "./js/cart/check_quantity_in_stora.js"
+    window.check_quantity_in_stora = check_quantity_in_stora
+    import {message_erorr} from "./js/module/message_erorr.js"
+    function onclick_button_buy(){
+        console.log(check_quantity_in_stora())
+        if (check_quantity_in_stora() == 'false') 
+        {
+            message_erorr('Số lượng trong kho không đủ', 'warning', 3000)
+        }
+        else{
+            show_form_infoCustomer()
+            printData_province()
+        }
+    }
+    window.onclick_button_buy = onclick_button_buy
+
+</script>
+

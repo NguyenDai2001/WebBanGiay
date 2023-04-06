@@ -1,0 +1,250 @@
+/* cart */
+
+.content_cart table {
+    width: 1000px;
+}
+
+.content_cart table th {
+    height: 60px;
+    width: 60px;
+}
+
+.content_cart table tr th:nth-child(1) {
+    width: 300px;
+    text-align: start;
+}
+
+
+.content_cart table tr td{
+    border-bottom: 1px solid rgb(133, 133, 133);
+
+}
+.content_cart table tr:first-child td {
+    border-top: 1px solid rgb(133, 133, 133);
+
+}
+
+/* product name */
+.Product_Name {
+    display: flex;
+}
+
+.Product_Name .img_product {
+    width: 30%;
+}
+
+.Product_Name .info_Product {
+    width: 70%;
+    height: 20px;
+    float: right;
+    padding: 20px 0px;
+}
+
+.Product_Name .info_Product h3 {
+    margin: 5px 0;
+}
+
+.img_product img {
+    width: 130px;
+    height: 70px;
+    margin: 10px;
+    object-fit: cover;
+    object-position: 0px -40px;
+}
+button{
+    cursor: pointer;
+}
+/* quantity */
+.other_infor {
+    width: 110px;
+    text-align: center;
+
+}
+
+.button_quantity {
+    height: 20px;
+    background-color: rgb(236, 236, 236);
+    border: none;
+  
+}
+.button_quantity:active{
+    background-color: rgb(134, 134, 134);
+}
+
+.button_delete {
+    background-color: transparent;
+    border: none;
+}
+
+.other_infor button i {
+    width: 50px;
+    color: red;
+    font-size: 20px;
+    transition: 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+.other_infor button i:hover{
+        color: rgb(250, 151, 151);
+        font-size: 30px;
+}
+
+.button_quantity {
+    width: 20px;
+    cursor: pointer;
+}
+
+#inp_quantily {
+    width: 30px;
+    border: none;
+    text-align: center;
+}
+
+
+
+/* tr footer */
+.tr_footer th:last-child {
+    text-align: end;
+}
+
+.tr_footer button {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.tr_footer .button_back {
+    border: 1px solid rgb(181, 0, 0);
+    color: rgb(181, 0, 0);
+    background-color: transparent;
+}
+.tr_footer .button_back:hover{
+        border: 1px solid rgb(255, 70, 70);
+        color: rgb(255, 70, 70);
+}
+
+.tr_footer .button_buy {
+    background-color: green;
+    color: antiquewhite;
+    border: none;
+}
+.tr_footer .button_buy:hover{
+    background-color: rgb(90, 255, 90);
+}
+
+
+/* Thông tìn người mua */
+#Form_order {
+    display: none;
+}
+
+.Form_infoCustomer {
+    position: absolute;
+    top: 40px;
+    width: 700px;
+    margin-left: 150px;
+    border: 1px solid rgb(167, 167, 167);
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+}
+
+.Form_backGround {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: rgba(167, 167, 167, 0.7);
+
+}
+
+#hide_from {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+}
+
+.Form_infoCustomer h1 {
+    margin: 20px;
+}
+
+.Form_infoCustomer form {
+    margin: 20px;
+}
+
+.Form_infoCustomer form legend {
+    margin: 10px 0 3px;
+}
+
+.Form_infoCustomer form input {
+    width: 96%;
+    height: 30px;
+    padding-left: 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(167, 167, 167);
+
+}
+
+.Form_infoCustomer #form_ho,
+#form_ten {
+    width: 46%;
+}
+
+.Form_infoCustomer form select {
+    width: 32.7%;
+    height: 30px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(167, 167, 167);
+}
+
+.Form_infoCustomer form textarea {
+    width: 99%;
+    padding: 10px 20px;
+    resize: none;
+    border: 1px solid rgb(167, 167, 167);
+    box-sizing: border-box;
+}
+
+.Form_infoCustomer .Form_button {
+    margin: 7px;
+    float: right;
+    border-radius: 5px;
+}
+
+.Form_infoCustomer .Form_button button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.Form_infoCustomer .Form_button button:nth-child(1) {
+    background-color: red;
+}
+
+.Form_infoCustomer .Form_button button:nth-child(2) {
+    background-color: rgb(0, 133, 215);
+}
+
+/* kích hoạt sự kiện active*/
+.Form_infoCustomer form .active::placeholder{
+    color: red;
+}
+.Form_infoCustomer  form .active {
+    border: 1px solid red;
+}
+
+
+/* backGround khi giỏ hàng trống */
+#Cart_null {
+    width: 100%;
+    height: 400px;
+    display: none;
+    background-image: url('../images/yourCartEmpty.png');
+    background-size: 700px;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}

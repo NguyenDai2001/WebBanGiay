@@ -1,38 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="styleSheet" title="text/css" href="./styles/index.css" />
+    <script src="https://kit.fontawesome.com/7f4a8e96ee.js" crossorigin="anonymous"></script>
 </head>
+
+<link rel="styleSheet" title="text/css" href="./styles/header.css" />
+<header id="render_header"></header>
+<script type="module" languege="javascript" src="./js/header.js"></script>
+    <div id="block_message">
+        <p id="message_box"></p>
+    </div>
+
 <body>
-	<form action="" method="post">
-		<input type="text" name="text" value="">
-		<input type="submit" name="sub" value="">
-		ssss
-		
-
-		<?php
-	 		session_start();
-
-			 if(!isset($_SESSION["test"]))
-			 {
-				$_SESSION["test"]='';
-				 echo 'dai 123';
-				 echo $_SESSION['sub'];
-			 }
-		
-		if(isset($_POST['sub'])&&isset($_POST['sub'])){
-			$test=$_POST['text'];
-			$_SESSION['sub']=$test;
-		}
-		
-
-?>
-<input type="text" name="s" value="<?php echo $_SESSION['sub']?>">
-	</form>
+    <div class="container"></div>
 </body>
 </html>
+
+<script type="module">
+    import { start } from "./js/index/renderHome.js"
+    start()
+</script>
+
 
 

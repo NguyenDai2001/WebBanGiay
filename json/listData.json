@@ -1,0 +1,136 @@
+{
+  "customer": [
+    {
+      "id": "y0l2h0X2Y0F0",
+      "firstName": "aa",
+      "lastName": "aaa",
+      "email": "daiqww@gmail.com",
+      "phone": "2222222222",
+      "address": "aaaaaaa",
+      "province": "6-Tỉnh Bắc Kạn",
+      "district": "62-Huyện Ngân Sơn",
+      "wards": "1945-Xã Cốc Đán",
+      "message": "",
+      "date": "10/2/2023",
+      "listProduct": [
+        {
+          "idSP": 1,
+          "SLtrongGio": 2
+        }
+      ]
+    },
+    {
+      "id": "f1v4b0G2V2X0",
+      "firstName": "aa",
+      "lastName": "aaa",
+      "email": "daiqww@gmail.com",
+      "phone": "2222222222",
+      "address": "aaaaaaaaa",
+      "province": "4-Tỉnh Cao Bằng",
+      "district": "42-Huyện Bảo Lâm",
+      "wards": "1291-Xã Đức Hạnh",
+      "message": "",
+      "date": "10/2/2023",
+      "listProduct": [
+        {
+          "idSP": 2,
+          "SLtrongGio": 1
+        }
+      ]
+    },
+    {
+      "id": "x4p3l0P1H0A3",
+      "firstName": "aaa",
+      "lastName": "aaa",
+      "email": "daiqww@gmail.com",
+      "phone": "123",
+      "address": "adsad",
+      "province": "6-Tỉnh Bắc Kạn",
+      "district": "62-Huyện Ngân Sơn",
+      "wards": "1945-Xã Cốc Đán",
+      "message": "",
+      "date": "10/2/2023",
+      "listProduct": [
+        {
+          "idSP": 5,
+          "SLtrongGio": 1
+        }
+      ]
+    },
+    {
+      "id": "d1c3p4J3Y0O4",
+      "firstName": "aa",
+      "lastName": "aaa",
+      "email": "daiqww@gmail.com",
+      "phone": "2222222222",
+      "address": "adsad",
+      "province": "4-Tỉnh Cao Bằng",
+      "district": "43-Huyện Bảo Lạc",
+      "wards": "1324-Xã Cốc Pàng",
+      "message": "",
+      "date": "10/2/2023",
+      "listProduct": [
+        {
+          "idSP": 2,
+          "SLtrongGio": 1
+        }
+      ]
+    },
+    {
+      "id": "l0c3a4I0Z0T1",
+      "firstName": "aaa",
+      "lastName": "aaa",
+      "email": "daiqww@gmail.com",
+      "phone": "2222222222",
+      "address": "aaaa",
+      "province": "4-Tỉnh Cao Bằng",
+      "district": "47-Huyện Trùng Khánh",
+      "wards": "1296-Xã Nam Cao",
+      "message": "",
+      "date": "10/2/2023",
+      "listProduct": [
+        {
+          "idSP": 2,
+          "SLtrongGio": 1
+        }
+      ]
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "NIke",
+      "price": 1000,
+      "soLuong": "0",
+      "image": "./images/SP/giay1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "NIke",
+      "price": 1000,
+      "soLuong": "2",
+      "image": "./images/SP/giay2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "NIke",
+      "price": 1000,
+      "soLuong": "0",
+      "image": "./images/SP/giay3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "NIke",
+      "price": 1000,
+      "soLuong": 10,
+      "image": "./images/SP/giay4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "NIke",
+      "price": 1000,
+      "soLuong": "9",
+      "image": "./images/SP/giay2.jpg"
+    }
+  ]
+}

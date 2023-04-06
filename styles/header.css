@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    box-shadow: 0px 5px 10px rgb(212, 212, 212);
+}
+
+.logo {
+    margin-right: 400px;
+}
+
+.logo img {
+    width: 100px;
+}
+
+#NavBar ul li {
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+#NavBar ul li a {
+    text-decoration: none;
+    font-weight: 900;
+    color: black;
+    
+}
+
+#NavBar ul li a:hover {
+    color: rgb(118, 118, 118);
+}
+.active {
+    border-bottom: 3px solid rgb(212, 0, 0);
+}
+
+.container {
+    width: 1065px;
+    margin: 20px auto;
+}
+
+#notification_cart{
+    position: absolute;
+    margin-top: -15px;
+    margin-left: 12px;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: aliceblue;
+    background-color: rgb(208, 122, 9);
+}
+/* thông báo lỗi */
+#block_message{
+    width: 200px;
+    height: 60px;
+    right: -250px;
+    top: 70px;
+    padding: 10px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 5px solid rgb(2, 158, 18);
+    background-color: rgb(255, 254, 254);
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+#message_box{
+    text-align: center;
+}
+

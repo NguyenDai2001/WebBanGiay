@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="styleSheet" title="text/css" href="./styles/bills.css">
+    <script src="https://kit.fontawesome.com/7f4a8e96ee.js" crossorigin="anonymous"></script>
+</head>
+
+<link rel="styleSheet" title="text/css" href="./styles/header.css" />
+<header id="render_header"></header>
+<script type="module" languege="javascript" src="./js/header.js"></script>
+
+<body>
+    
+    <div id="container">
+        
+        <div id="table_data">
+            <ul class="title_name">
+                <li>Code</li>
+                <li>Customer Name</li>
+                <li>Date</li>
+                <li>Item Numbers</li>
+                <li>Total Quantity</li>
+                <li>Total Price</li>
+                <li>Return</li>
+            </ul>
+            <div id="render_customer"></div>
+            
+            
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script type="module" languege="javascript" >
+    import { start } from "./js/bills/get_customer.js"
+    start()
+
+</script>
